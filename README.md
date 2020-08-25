@@ -1,4 +1,4 @@
-# Tutor!
+# tutor
 
 ### Our Team
 ##### Golan Cohen

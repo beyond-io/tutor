@@ -44,7 +44,8 @@ Implemented with bootstrap.
 
 ## Login System
 
-TBD
+User registration implemented in DB with hashed passwords. 
+User login implemented with flask-login package.
 
 ## Testing and CI
 
@@ -89,9 +90,11 @@ vagrant destroy -f
 
 # Dependencies
 
-We will supply a requirement.txt and a bootstrap file that will install all the needed libraries in the future.
+In this project we are using `pipenv` as a package and virtual environment manager. 
 
-These are the current libraries used:
+We will supply a `Pipfile`, a `Pipfile.lock` and a bootstrap file that will install all the needed libraries in the future.
+
+These are the main libraries used:
 
 Python 3.7
 

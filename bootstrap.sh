@@ -3,12 +3,12 @@
 
 echo "installing python and postgres"
 apt update
-apt install -y python3.7 python3-pip postgresql postgresql-contrib
+apt install -y python3.7 python3-pip python3.7-dev postgresql postgresql-contrib postgresql-common postgresql-client libpq-dev
 
 
 echo "installing dependencies"
-pip3 install --upgrade pip
-pip3 install -r /vagrant/requirements.txt
+pip3 install pipenv
+cd /vagrant/ && pipenv sync --dev
 
 
 echo "initializing new DB"
@@ -22,10 +22,10 @@ export FLASK_ENV=development
 
 echo "initializing DB and migrations"
 cd /vagrant
-python3 run.py db init
-python3 run.py db migrate
-python3 run.py db upgrade
+pipenv run python3 run.py db init
+pipenv run python3 run.py db migrate
+pipenv run python3 run.py db upgrade
 
 
 echo "run tutor app"
-flask run -h 0.0.0.0 -p 5000
+nohup pipenv run flask run -h 0.0.0.0 -p 5000

@@ -50,3 +50,13 @@ To use migrations, we first need to create one by connecting to the Box, using `
 Now we can use `flask-migrate` commands to create a new migration. Use `python3 run.py db revision --message %SHORT_DESCRIPTION_OF_WHAT_YOU_WANT_TO_DO%`. The description should be short, so use one migration for one purpose. Also the separators should be `-` or `_` (on both cases the command will make it `_` on the filename).
 
 Then you need edit your new migration, that would be on `/migrations/versions` folder. Once you save your changes and complete to configure your migration, you should call `flask run.py db migrate` and `flask run.py db upgrade` on the Box to apply the migration changes. You can also use `vagrant up --provision` again (after `vagrant halt` of course).
+
+### Adding new dependencies
+We are using `pipenv` to handle packages.
+To add a new package:
+1. Start up the machine
+2. SSH into the machine using `vagrant ssh`
+3. Change into the project's directory - `cd /vagrant/`
+4. Start up the virtual environment - `pipenv shell`
+5. Install the new library - `pipenv install %LIBRARY%`
+The Pipfile and Pipfile.lock are updated automatically.

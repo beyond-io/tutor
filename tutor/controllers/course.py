@@ -1,22 +1,21 @@
 from flask import render_template, redirect, url_for
 from ..models.course import Course
 from .forms import AddCourse
+from .. import db
 
 
 def addCourse():
     form = AddCourse()
     if form.validate_on_submit():
+        course = Course(name=form.name.data)
+        db.session.add(course)
+        db.session.commit()
         return redirect(url_for('courses_route'))
     return render_template('addcourse.html', form=form)
 
 
 def showCourses():
-    # get courses from data base into a list
-    courses = [
-        {'id': 1, 'title': 'Course 1'},
-        {'id': 2, 'title': 'Course 2'},
-        {'id': 3, 'title': 'Course 3'}
-    ]
+    courses = Course.query.all()
     return render_template('courses.html', courses=courses)
 
 

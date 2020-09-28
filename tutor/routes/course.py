@@ -1,5 +1,5 @@
 from .. import app
-from ..controllers import course, resources
+from ..controllers import course
 from flask import request
 
 

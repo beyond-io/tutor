@@ -1,5 +1,4 @@
 from tutor.models.model import Model
-from tutor import db
 
 
 def test_add_new_model():

@@ -1,5 +1,6 @@
 from .. import app
 from ..controllers import home, register, login
+from flask import flash
 
 
 @app.route('/')
@@ -16,3 +17,9 @@ def register_route():
 @app.route("/login", methods=['GET', 'POST'])
 def login_route():
     return login.login()
+
+
+@app.route("/flash")
+def flash_route():
+    flash('Test message', 'success')
+    return home.home()

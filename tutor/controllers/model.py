@@ -1,4 +1,3 @@
-from .. import db
 from flask import jsonify
 from ..models import model
 

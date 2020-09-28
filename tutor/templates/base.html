@@ -32,6 +32,15 @@
 
           <div class="container">
             <div class="jumbotron" style="background-color: white; opacity: 0.95;">  
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <div class="alert alert-{{ category }}">
+                    {{ message }}
+                  </div>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
             {% block content%} {% endblock %}
             </div>
           </div>

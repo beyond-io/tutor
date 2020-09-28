@@ -18,7 +18,7 @@ In order to use automatic tests, we will store all our tests on `/tests` folder.
 We should call our test files with "test" before the description, like `test_whatYouWantToTest.py`. 
 Also the functions inside the test files should be called with "test" before the description, like `test_testFunctionName()`. That way `pytest` would know what files and function is our tests.
 
-To test out our tests, we should connect into the Box, `vagrant ssh`, go to the vagrant folder, `cd /vagrant` and then call `python3 -m pytest` to run the tests.
+To test out our tests, we should connect into the Box, `vagrant ssh`, go to the vagrant folder, `cd /vagrant` and then call `pipenv run python3 -m pytest` to run the tests.
 
 
 ## General Guidelines
@@ -47,9 +47,9 @@ That way GET routes its for representing a view to the user, and POST routes its
 
 To use migrations, we first need to create one by connecting to the Box, using `vagrant ssh`. Then we need to be on the app folder, using `cd /vagrant` to apply the commands easier.
 
-Now we can use `flask-migrate` commands to create a new migration. Use `python3 run.py db revision --message %SHORT_DESCRIPTION_OF_WHAT_YOU_WANT_TO_DO%`. The description should be short, so use one migration for one purpose. Also the separators should be `-` or `_` (on both cases the command will make it `_` on the filename).
+Now we can use `pipenv run flask-migrate` commands to create a new migration. Use `pipenv run python3 run.py db revision --message %SHORT_DESCRIPTION_OF_WHAT_YOU_WANT_TO_DO%`. The description should be short, so use one migration for one purpose. Also the separators should be `-` or `_` (on both cases the command will make it `_` on the filename).
 
-Then you need edit your new migration, that would be on `/migrations/versions` folder. Once you save your changes and complete to configure your migration, you should call `flask run.py db migrate` and `flask run.py db upgrade` on the Box to apply the migration changes. You can also use `vagrant up --provision` again (after `vagrant halt` of course).
+Then you need edit your new migration, that would be on `/migrations/versions` folder. Once you save your changes and complete to configure your migration, you should call `pipenv run flask run.py db migrate` and `pipenv run flask run.py db upgrade` on the Box to apply the migration changes. You can also use `vagrant up --provision` again (after `vagrant halt` of course).
 
 ### Adding new dependencies
 We are using `pipenv` to handle packages.

@@ -34,5 +34,5 @@ class resourceForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
     content = TextAreaField('Description', validators=[DataRequired()])
     link = TextAreaField('Link',
-                validators=[DataRequired(), URL(require_tld=True, message="Not a valid URL")])
+    validators=[DataRequired(), URL(require_tld=True, message="Not a valid URL")])
     submit = SubmitField('Post')

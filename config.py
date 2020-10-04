@@ -8,6 +8,7 @@ class DevelopmentConfig(Config):
     DEVELOPMENT = True
     DEBUG = True
 
+
 class TestingConfig(Config):
     TESTING = True
     WTF_CSRF_ENABLED = False

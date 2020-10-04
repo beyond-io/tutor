@@ -4,8 +4,6 @@ from tutor.models.course import Course
 
 
 def test_addcourse():
-    app.config['WTF_CSRF_ENABLED'] = False
-    app.config['TESTING'] = True
     with app.test_client() as c:
         assert Course.query.all() == []
         course1 = {'name': 'Open Source'}

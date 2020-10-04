@@ -4,8 +4,6 @@ from tutor.models.users import Users
 
 
 def test_login():
-    app.config['WTF_CSRF_ENABLED'] = False
-    app.config['TESTING'] = True
     with app.test_client() as c:
         # Test login without register
         login_user = {

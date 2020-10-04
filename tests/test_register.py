@@ -4,8 +4,6 @@ from tutor.models.users import Users
 
 
 def test_register_user():
-    app.config['WTF_CSRF_ENABLED'] = False
-    app.config['TESTING'] = True
     with app.test_client() as c:
         # Test register user
         assert Users.query.all() == []

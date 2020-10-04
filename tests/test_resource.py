@@ -5,8 +5,6 @@ from tutor.models.course import Resource, Course
 
 
 def test_resource_create():
-    app.config['WTF_CSRF_ENABLED'] = False
-    app.config['TESTING'] = True
     with app.test_client() as c:
         assert Resource.query.all() == []
         course_1 = Course(id=3000, name='course_name')

@@ -14,6 +14,8 @@ def client():
 @pytest.fixture(autouse=True)
 def cleanup():
     yield None
+    for user in Users.query.all():
+        user.removeAllFavorites()
     Resource.query.delete()
     Course.query.delete()
     Users.query.delete()

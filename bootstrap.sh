@@ -42,5 +42,6 @@ pipenv run python3 run.py db upgrade
 if [ ! "$CI" ] 
 then
   echo "run tutor app"
+  pipenv run python3 launch_data.py
   nohup pipenv run flask run -h 0.0.0.0 -p 5000
 fi

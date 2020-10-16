@@ -10,7 +10,7 @@
                 <div class="card" style="margin: 20px">
                     <div class="card-body">
                         <h5 class="card-title">
-                            <a href="{{ url_for(get_course_info_route), id=fav.id }}" class="card-link">{{fav.title}}</a>
+                            <a href="{{ url_for('get_course_info_route', id=fav.id) }}" class="card-link">{{fav.name}}</a>
                         </h5>
                     </div>
                 </div>

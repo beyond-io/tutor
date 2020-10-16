@@ -1,5 +1,6 @@
-from flask import render_template, redirect, url_for, flash
+from flask import render_template, redirect, url_for, flash, request
 from ..models.course import Course
+from ..models.users import Users
 from .. import db
 from .forms.add_course_form import AddCourse
 from flask_login import current_user
@@ -29,3 +30,10 @@ def showCoursePage(id):
     resources = course.resources
     courseId = id
     return render_template('course.html', name=name, resources=resources, id=courseId)
+
+
+def addCourseToFav(course_id, user_id):
+    course = Course.query.filter_by(id=course_id).first()
+    user = Users.query.filter_by(id=user_id).first()
+    user.addFavorite(course)
+    return redirect(url_for('private_route', id=user.id))

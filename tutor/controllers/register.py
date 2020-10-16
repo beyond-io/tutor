@@ -15,5 +15,5 @@ def register():
         user = Users(username=form.username.data, email=form.email.data, password=hashed_pass)
         db.session.add(user)
         db.session.commit()
-        return redirect(url_for('login_route'))
+        return redirect(url_for('courses_route'))
     return render_template('register.html', form=form)

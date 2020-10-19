@@ -1,6 +1,6 @@
 from .. import app
 from ..controllers import home, register, login, logout
-from flask import flash
+from flask import flash, request
 
 
 @app.route('/')
@@ -28,3 +28,9 @@ def flash_route():
 @app.route("/logout")
 def logout_route():
     return logout.logout()
+
+
+@app.route('/user')
+def private_route():
+    id = request.args.get('id')
+    return home.private(id)

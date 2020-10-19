@@ -17,3 +17,10 @@ def courses_route():
 @app.route("/addcourse", methods=['GET', 'POST'])
 def addCourse_route():
     return course.addCourse()
+
+
+@app.route("/addfav", methods=['GET', 'POST'])
+def fav_route():
+    course_id = request.args.get('course_id')
+    user_id = request.args.get('user_id')
+    return course.addCourseToFav(course_id, user_id)

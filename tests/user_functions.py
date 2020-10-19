@@ -23,5 +23,6 @@ def search_user_name(username):
 
 
 def register_and_login(client):
-    create_test_user(username="test", email="test@email.com", password="123")
+    user = create_test_user(username="test", email="test@email.com", password="123")
     login_test_user(client, "test@email.com", "123")
+    return user

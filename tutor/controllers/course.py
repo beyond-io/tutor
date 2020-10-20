@@ -6,15 +6,6 @@ from .forms.add_course_form import AddCourseToTutor
 from flask_login import current_user
 
 
-def addCourseToFavorites():
-    #if not current_user.is_authenticated:
-     #   flash("You must be logged in to add course to favorites", 'danger')
-     #   return redirect(url_for('courses_route'))
-    #form = 
-        
-    #return render_template('newfavorites.html', form=form)
-
-
 def addCourseToTutor():
     if not current_user.is_authenticated:
         flash("You must be logged in to add course to Tutor", 'danger')

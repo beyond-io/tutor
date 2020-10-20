@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %} Tutor {% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <h1 class="text-center">{{username}}</h1>
+        <div style="margin-top:100px">
+            {% for fav in favorites %}
+                <div class="card" style="margin: 20px">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="{{ url_for('get_course_info_route', id=fav.id) }}" class="card-link">{{fav.name}}</a>
+                        </h5>
+                    </div>
+                </div>
+              {% endfor %}
+        </div>
+        <a class="btn btn-primary ml-3" href="{{ url_for('courses_route') }}" role="button">show all courses</a>
+    </div>
+ 
+
+{% endblock %}

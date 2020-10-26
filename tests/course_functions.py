@@ -8,8 +8,8 @@ def create_test_course(course_id, name):
     db.session.commit()
 
 
-def create_test_resource(title, content, link, course_id):
-    resource = Resource(title=title, content=content, link=link, course_id=course_id)
+def create_test_resource(id, title, content, link, course_id):
+    resource = Resource(id=id, title=title, content=content, link=link, course_id=course_id)
     db.session.add(resource)
     db.session.commit()
 

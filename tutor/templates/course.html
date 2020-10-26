@@ -15,6 +15,7 @@
                         <p class="card-text">
                             {{resource.content}}
                         </p>
+                        <a class="btn btn-secondary btn-sm m-1" href="{{ url_for('update_resource', id=id, resource_id=resource.id) }}">Edit</a>
                     </div>
                 </div>
               {% endfor %}

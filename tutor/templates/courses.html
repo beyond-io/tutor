@@ -6,13 +6,19 @@
     <h2>Courses</h2> <br>
     {% for course in courses %}
         <article class="media content-section">
+            {% if current_user.is_authenticated %}
+                <h3><input type="checkbox">&nbsp;&nbsp;</h3>
+            {% endif %}
             <div class="media-body">
                 <h3><a class="article-title" href="{{ url_for('get_course_info_route', id=course.id) }}">{{ course.name }}</a></h3>
             </div>
         </article>
     {% endfor %}
-    <a class="btn btn-outline-info" style="background-color: white" href="{{ url_for('addCourse_route') }}">Add
-        Courses</a>
+    <br>
+    <a class="btn btn-outline-info" style="background-color: white" href="{{ url_for('newFavorites_route') }}">✯ Add Selected Courses to Favorites ✯</a>
+    <br>
+    <br>
+    <a class="btn btn-outline-info" style="background-color: white" href="{{ url_for('addCourse_route') }}">Add New Course to Tutor</a>
     <br>
 
 {% endblock content %}

@@ -2,15 +2,15 @@ from flask import render_template, redirect, url_for, flash
 from ..models.course import Course
 from ..models.users import Users
 from .. import db
-from .forms.add_course_form import AddCourse
+from .forms.add_course_form import AddCourseToTutor
 from flask_login import current_user
 
 
-def addCourse():
+def addCourseToTutor():
     if not current_user.is_authenticated:
-        flash("You must be logged in to add course", 'danger')
+        flash("You must be logged in to add course to Tutor", 'danger')
         return redirect(url_for('courses_route'))
-    form = AddCourse()
+    form = AddCourseToTutor()
     if form.validate_on_submit():
         course = Course(name=form.name.data)
         db.session.add(course)

@@ -14,6 +14,11 @@ def courses_route():
     return course.showCourses()
 
 
+@app.route("/newfavorites", methods=['GET', 'POST'])
+def newFavorites_route():
+    return course.addCourseToFavorites()
+
+ 
 @app.route("/addcourse", methods=['GET', 'POST'])
 def addCourse_route():
     return course.addCourse()
